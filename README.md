@@ -33,7 +33,7 @@ The parser for action tags attempts to be fairly flexible and allow for the foll
 Examples:
 
 ```python
-# FIXME: DATE: AFTER: 2021-12-05` will result in code `AH000: Date conditional action tag found (FIXME)
+# FIXME: DATE: AFTER: 2021-12-05: This will result in code `AH000: Date conditional action tag found (FIXME)
 ```
 
 ### Package Conditional Action Tags
