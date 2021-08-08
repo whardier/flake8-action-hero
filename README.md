@@ -3,12 +3,37 @@ A plugin for flake8 that performs conditional FIXME/TODO checks.
 
 ## Action Tags
 
+Code comments that begin with `# FIXME:`/`# TODO:` are often referred to as "FIXME Comments".  This plugin refers to them as action tags.
+
+Action tags are typically a tag followed by a series of commands and variables.  The series is defined by the module (action) handling the conditional test defined in sections below.
+
+The parser for action tags attempts to be fairly flexible and allow for the following:
+
+```python
+
+# This will be ignored since there is no action.
+# FIXME: This is a bare fixme comment.
+# TODO: This is a bare todo comment.
+
+# This will be ignored since there is no action.
+# FIXME(SRS): This comment includes my initials and is a popular way to signify that a
+# person found an issue (and isn't directly responsible for fixing it).
+
+# This will be tested since there is a valid action.
+# FIXME(SRS): DATE: AFTER: 2022-01-01: This comment includes initials as well as a composite
+# action and condition and will be tested.
+
+# This will be ignored since no action handler exists (yet) for this.
+# CRITICAL: SCHRÖDINGER: CAT: DEAD: Do not commit while cat is dead. 
+
+```
+
 ### Date Conditional Action Tags
 
 Examples:
 
 ```python
-# FIXME: AFTER: DATE: 2021-12-05` will result in code `AH000: Date conditional action tag found (FIXME)
+# FIXME: DATE: AFTER: 2021-12-05` will result in code `AH000: Date conditional action tag found (FIXME)
 ```
 
 ### Package Conditional Action Tags
@@ -52,8 +77,9 @@ In the error code table the `{T}`/`{...}` represents a code and type related to 
 | `7` | `CRITICAL` | ... |
 | `8` | `WARNING` | ... |
 
-| Error codes | Description |
-|:----------:|:------------|
-| `AH00{T}` | Date conditional action tag found (`{...}`) |
-| `AH40{T}` | Package conditional action tag found (`{...}`) |
+| Error codes | Description | Utility |
+|:-----------:|:------------|:--------|
+| `AH00{T}` | Date after condition met (`{...}`) | Good for tracking feature dates. |
+| `AH01{T}` | Date before condition met (`{...}`) | Perhaps not very useful. |
+| `AH40{T}` | Package version specifier condition met (`{...}`) | Refactoring against upstream changes. |
 
