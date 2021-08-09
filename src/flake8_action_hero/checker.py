@@ -12,10 +12,6 @@ RE_BRACKETS_SQUARE = re.compile(r"\[[^)]*\]")
 RE_BRACKETS_CURLY = re.compile(r"\{[^)]*\}")
 RE_BRACKETS_ANGLE = re.compile(r"\<[^)]*\>")
 
-# TODO: This is a test comment
-# FIXME: This is a text comment
-# perhaps a continuation as well
-
 
 class ActionChecker(object):
 
