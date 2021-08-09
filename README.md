@@ -24,7 +24,7 @@ The parser for action tags attempts to be fairly flexible and allow for the foll
 # action and condition and will be tested.
 
 # This will be ignored since no action handler exists (yet) for this.
-# CRITICAL: SCHRÖDINGER: CAT: DEAD: Do not commit while cat is dead. 
+# CRITICAL: SCHRÖDINGER: CAT: DEAD: Do not commit while cat is dead.
 
 ```
 
@@ -82,4 +82,3 @@ In the error code table the `{T}`/`{...}` represents a code and type related to 
 | `AH00{T}` | Date after condition met (`{...}`) | Good for tracking feature dates. |
 | `AH01{T}` | Date before condition met (`{...}`) | Perhaps not very useful. |
 | `AH40{T}` | Package version specifier condition met (`{...}`) | Refactoring against upstream changes. |
-
