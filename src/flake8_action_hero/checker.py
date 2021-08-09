@@ -40,12 +40,6 @@ class ActionChecker(object):
 
     def run(self) -> Iterator[Tuple[int, int, str, Type["ActionChecker"]]]:
 
-        #
-        # FIXME(SRS): WHAT: HECK: asdf=132: Hi there: AWS<=2.0.>=2.5
-        # FIXME: DATE: BEFORE: 2022-01-01: So I walk into a bar: oww!
-        # TODO(SRS): DATE: IS: 2021-08-08: So I walk into a bar: oww!
-        # FIXME: PACKAGE: VERSION: requests<=2.26.0: Man.. I tell yah.
-        # FIXME: PACKAGE: VERSION: requestss<=2.26.0: Man.. I tell yah.
         for file_comment_token in self.iterate_filter_only_comment_file_tokens():
 
             actions_or_strings: List[str] = []
